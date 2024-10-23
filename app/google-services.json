@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "574058142928",
+    "project_id": "autenticar1-6dc14",
+    "storage_bucket": "autenticar1-6dc14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574058142928:android:561ba5b01c37ce910a12d5",
+        "android_client_info": {
+          "package_name": "com.example.autenticar1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCspYHNd9pxDavysuPuEKciC4kkRy29U6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
