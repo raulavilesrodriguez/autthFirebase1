@@ -71,9 +71,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    //new dependencies to test
+    androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.truth)
+    kspAndroidTest(libs.hilt.compiler)
 
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
+    implementation(libs.accompanist.permissions)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
@@ -85,5 +90,13 @@ dependencies {
     implementation(libs.androidx.material3.adaptive.navigation)
     implementation(libs.androidx.window)
 
-    implementation(libs.accompanist.permissions)
+    //Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.perf)
+    implementation(libs.firebase.config)
+    implementation(libs.firebase.messaging)
 }
