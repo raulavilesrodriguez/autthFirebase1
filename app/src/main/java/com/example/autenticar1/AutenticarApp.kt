@@ -25,6 +25,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.autenticar1.common.composable.PermissionDialog
 import com.example.autenticar1.common.composable.RationaleDialog
 import com.example.autenticar1.common.snackbar.SnackbarManager
+import com.example.autenticar1.screens.splash.SplashScreen
 import com.example.autenticar1.ui.theme.Autenticar1Theme
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
@@ -100,6 +101,9 @@ fun resources(): Resources {
 
 fun NavGraphBuilder.autenticarGraph(appState: AutenticarAppState){
     composable(SPLASH_SCREEN){
-
+        SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
+
+
+
 }
