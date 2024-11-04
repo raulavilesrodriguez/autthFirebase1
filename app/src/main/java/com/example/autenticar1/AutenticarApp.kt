@@ -22,10 +22,17 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.autenticar1.common.composable.PermissionDialog
 import com.example.autenticar1.common.composable.RationaleDialog
 import com.example.autenticar1.common.snackbar.SnackbarManager
+import com.example.autenticar1.screens.edit_task.EditTaskScreen
+import com.example.autenticar1.screens.login.LoginScreen
+import com.example.autenticar1.screens.settings.SettingsScreen
+import com.example.autenticar1.screens.sign_up.SignUpScreen
 import com.example.autenticar1.screens.splash.SplashScreen
+import com.example.autenticar1.screens.stats.StatsScreen
+import com.example.autenticar1.screens.tasks.TasksScreen
 import com.example.autenticar1.ui.theme.Autenticar1Theme
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
@@ -104,6 +111,37 @@ fun NavGraphBuilder.autenticarGraph(appState: AutenticarAppState){
         SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 
+    composable(SETTINGS_SCREEN) {
+        SettingsScreen(
+            restartApp = { route -> appState.clearAndNavigate(route) },
+            openScreen = { route -> appState.navigate(route) }
+        )
+    }
 
+    composable(STATS_SCREEN) {
+        StatsScreen()
+    }
+
+    composable(LOGIN_SCREEN) {
+        LoginScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
+    }
+
+    composable(SIGN_UP_SCREEN) {
+        SignUpScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
+    }
+
+    composable(TASKS_SCREEN) { TasksScreen(openScreen = { route -> appState.navigate(route) }) }
+
+    composable(
+        route = "$EDIT_TASK_SCREEN$TASK_ID_ARG",
+        arguments = listOf(navArgument(TASK_ID) {
+            nullable = true
+            defaultValue = null
+        })
+    ) {
+        EditTaskScreen(
+            popUpScreen = { appState.popUp() }
+        )
+    }
 
 }

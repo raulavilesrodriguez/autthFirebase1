@@ -39,6 +39,12 @@
     <string name="sign_out">Desconectar</string>
     <string name="delete_my_account">Borrar mi cuenta</string>
 
+    <!-- StatsScreen -->
+    <string name="stats">Estadisticas</string>
+    <string name="completed_tasks">Tareas Completadas</string>
+    <string name="important_completed_tasks">Importante tareas completadas \n (alta prioridad o flag)</string>
+    <string name="medium_high_tasks_to_complete">Tareas con Media y alta prioridad para completar</string>
+
     <!-- Dialogs -->
     <string name="sign_out_title">Desconectar?</string>
     <string name="sign_out_description">Iniciarás nuevamente para ver tus tareas.</string>

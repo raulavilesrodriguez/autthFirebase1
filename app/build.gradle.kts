@@ -11,7 +11,7 @@ plugins {
 
 android {
     namespace = "com.example.autenticar1"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.autenticar1"
@@ -64,6 +64,11 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material3)
+    // this 3 dependencies no in apps newer
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

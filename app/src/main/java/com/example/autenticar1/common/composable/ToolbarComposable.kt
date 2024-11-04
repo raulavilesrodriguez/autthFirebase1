@@ -4,6 +4,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -25,19 +27,28 @@ fun BasicToolbar(@StringRes title: Int) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ActionToolbar(
-    @StringRes title: Int,
-    @DrawableRes endActionIcon: Int,
     modifier: Modifier,
-    endAction: () -> Unit
+    @StringRes title: Int,
+    @DrawableRes primaryActionIcon: Int,
+    primaryAction: () -> Unit,
+    @DrawableRes secondaryActionIcon: Int? = null,
+    secondaryAction: (() -> Unit)? = null
 ) {
     TopAppBar(
         title = { Text(stringResource(title)) },
         actions = {
             Box(modifier) {
-                IconButton(
-                    onClick = endAction
+                Row(
+                    modifier = Modifier.wrapContentSize(),
                 ) {
-                    Icon(painter = painterResource(endActionIcon), contentDescription = "Action")
+                    IconButton(onClick = primaryAction) {
+                        Icon(painter = painterResource(primaryActionIcon), contentDescription = "Primary Action")
+                    }
+                    if (secondaryAction != null && secondaryActionIcon != null) {
+                        IconButton(onClick = secondaryAction) {
+                            Icon(painter = painterResource(secondaryActionIcon), contentDescription = "Secondary Action")
+                        }
+                    }
                 }
             }
         }
